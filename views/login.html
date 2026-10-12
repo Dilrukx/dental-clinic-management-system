@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign in · DentaCare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/style.css"></head>
+<body class="center"><svg width="0" height="0" style="position:absolute"><symbol id="tooth" viewBox="0 0 64 64"><path d="M32 10C26 4 14 4 11 14C9 22 13 30 14 38C15 46 15 54 19 56C23 58 25 50 27 44C28 41 30 40 32 40C34 40 36 41 37 44C39 50 41 58 45 56C49 54 49 46 50 38C51 30 55 22 53 14C50 4 38 4 32 10Z"/></symbol></svg>
+<section class="brand"><svg viewBox="0 0 64 64"><use href="#tooth"/></svg><h2>Every smile, on schedule.</h2><p>Appointments, patients, treatments and payments for your clinic, in one place.</p></section>
+<div class="login-wrap"><form id="f" class="login"><h1>Welcome back</h1><p class="muted">Sign in to manage today's clinic.</p>
+<label>Email<input name="email" type="email" required autofocus></label><label>Password<input name="password" type="password" required></label>
+<button>Sign in</button><p id="e" class="err"></p></form></div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>$('#f').on('submit',e=>{e.preventDefault();$.ajax({url:'/api/auth/login',method:'POST',contentType:'application/json',data:JSON.stringify(Object.fromEntries(new FormData(e.target)))}).done(()=>location='/').fail(x=>$('#e').text(x.responseJSON?.error||'Server error'))})</script></body></html>
