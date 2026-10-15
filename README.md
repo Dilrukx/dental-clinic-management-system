@@ -6,7 +6,7 @@ Node.js + Express (MVC, REST) · MySQL · jQuery/AJAX frontend · bcrypt + sessi
 1. Install Node.js 18+ and MySQL 8+.
 2. `cd dental-clinic && npm install`
 3. Create DB and seed data: `mysql -u root -p < schema.sql`
-4. `cp .env.example .env` and set `DB_PASSWORD`, `SESSION_SECRET` (and optionally the admin login).
+4. In`.env` set `DB_PASSWORD`, `SESSION_SECRET` (and optionally the admin login).
 5. `npm start` (or `npm run dev`) and open http://localhost:3000
 
 **Default login:** `admin@clinic.com` / `Admin@123`. The admin is created on first start with a bcrypt-hashed password; change it in `.env` **before** first run.
